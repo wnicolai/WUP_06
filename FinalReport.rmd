@@ -36,14 +36,26 @@ Is belief in the bigbang theory (BIGBANG) independent of belief in an afterlife 
 barchartGC(~POSTLIFE + BIGBANG,data=GSS)
 barchartGC(~POSTLIFE + BIGBANG,data=GSS, type="percent")
 ```
+It seems more people who don't beleive in the afterlife feel the big bang is false and more peope who believe in the afterlife believe its false
 ### Numerical Descriptive Results
 
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
+
+```{r}
+table1 <- xtabs(~POSTLIFE + BIGBANG,data=GSS)
+rowPerc(table1)
+colPerc(table1)
+```
 
 ## Inferential Results
 
 <!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
 
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
 
 # Discussion and Conclusion
 
